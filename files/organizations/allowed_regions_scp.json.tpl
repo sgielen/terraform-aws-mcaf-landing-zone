@@ -48,9 +48,14 @@
             "Resource": "*",
             "Condition": {
                 "StringNotEquals": {
-                    "aws:RequestedRegion": ${allowed_regions}
+                    "aws:RequestedRegion": ${allowed}
                 }
             }
+            %{ if length(exceptions) > 0 }
+            ,"ArnNotLike": {
+                "aws:PrincipalARN": ${exceptions}
+            }
+            %{ endif }
         }
     ]
 }
