@@ -169,6 +169,9 @@ And provide values for your endpoint to receive notifications, variable `sns_end
 | aws\_sso\_acs\_url | AWS SSO ACS URL for the Okta App | `string` | n/a | yes |
 | aws\_sso\_entity\_id | AWS SSO Entity ID for the Okta App | `string` | n/a | yes |
 | control\_tower\_account\_ids | Control Tower core account IDs | <pre>object({<br>    audit   = string<br>    logging = string<br>  })</pre> | n/a | yes |
+| sns\_endpoint | Endpoint for SNS topic subscription | `string` | n/a | yes |
+| sns\_endpoint\_protocol | Endpoint protocol for SNS topic subscription | `string` | n/a | yes |
+| sns\_security\_topic\_subscription | Enable SNS aggregated security topic subscription | `bool` | n/a | yes |
 | tags | Map of tags | `map(string)` | n/a | yes |
 | additional\_auditing\_trail | CloudTrail configuration for additional auditing trail | <pre>object({<br>    name   = string<br>    bucket = string<br>  })</pre> | `null` | no |
 | aws\_allowed\_regions | List of allowed AWS regions | `list(string)` | `null` | no |
@@ -180,9 +183,6 @@ And provide values for your endpoint to receive notifications, variable `sns_end
 | aws\_require\_imdsv2 | Enable SCP that requires EC2 instances to use V2 of the Instance Metadata Service | `bool` | `true` | no |
 | datadog | Datadog integration options for the core accounts | <pre>object({<br>    api_key               = string<br>    enable_integration    = bool<br>    install_log_forwarder = bool<br>    site_url              = string<br>  })</pre> | `null` | no |
 | monitor\_iam\_access | List of IAM Identities that should have their access monitored | <pre>list(object({<br>    account = string<br>    name    = string<br>    type    = string<br>  }))</pre> | `null` | no |
-| sns\_endpoint | Endpoint for SNS topic subscription | `string` | n/a | no |
-| sns\_endpoint\_protocol | Endpoint protocol for SNS topic subscription | `string` | n/a | no |
-| sns\_security\_topic\_subscription | Enable SNS aggregated security topic subscription | `bool` | false | no |
 
 ## Outputs
 
